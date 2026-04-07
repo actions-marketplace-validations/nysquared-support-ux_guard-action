@@ -1,0 +1,33 @@
+name: 'Guard Action - AI Prompt Security'
+description: 'Detect prompt injection and PII in LLM prompts using @ny-squared/guard'
+author: 'NY-squared'
+branding:
+  icon: 'shield'
+  color: 'blue'
+inputs:
+  prompt:
+    description: 'The LLM prompt text to scan'
+    required: true
+  threshold:
+    description: 'Risk score threshold (0.0-1.0). Fails if exceeded.'
+    required: false
+    default: '0.7'
+  fail_on_block:
+    description: 'Fail the workflow if prompt is blocked'
+    required: false
+    default: 'true'
+  api_key:
+    description: 'PromptGuard API key (optional, for advanced cloud features)'
+    required: false
+outputs:
+  risk_score:
+    description: 'Risk score from 0.0 to 1.0'
+  blocked:
+    description: 'Whether the prompt was blocked (true/false)'
+  risk_type:
+    description: 'Type of risk detected (injection/pii/none)'
+  details:
+    description: 'JSON string with full scan details'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

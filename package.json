@@ -1,0 +1,25 @@
+{
+  "name": "guard-action",
+  "version": "1.0.0",
+  "description": "GitHub Action to detect prompt injection and PII in LLM prompts using @ny-squared/guard",
+  "main": "dist/index.js",
+  "scripts": {
+    "postinstall": "node -e \"const fs=require('fs'),p='node_modules/@ny-squared/guard/dist/index.cjs';if(!fs.existsSync(p)){try{fs.copyFileSync(p.replace('.cjs','.js'),p)}catch(e){}}\"",
+    "build": "npx @vercel/ncc build index.js -o dist",
+    "test": "node test.js"
+  },
+  "keywords": [
+    "github-actions",
+    "prompt-injection",
+    "llm-security",
+    "pii-detection",
+    "ai-security"
+  ],
+  "author": "NY-squared",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.10.1",
+    "@actions/github": "^6.0.0",
+    "@ny-squared/guard": "^0.2.6"
+  }
+}
