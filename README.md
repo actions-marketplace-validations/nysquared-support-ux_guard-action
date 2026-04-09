@@ -40,7 +40,7 @@ That's it. If a prompt injection or PII is detected above the default threshold 
 | `prompt` | Yes | - | The LLM prompt text to scan |
 | `threshold` | No | `0.7` | Risk score threshold (0.0-1.0). Fails if exceeded |
 | `fail_on_block` | No | `true` | Fail the workflow if prompt is blocked |
-| `api_key` | No | - | PromptGuard API key (optional, for advanced cloud features) |
+| `api_key` | No | - | PromptSentry API key (optional, for advanced cloud features) |
 
 ## Outputs
 
@@ -144,16 +144,16 @@ All scanning happens inside the GitHub Actions runner. No data leaves your CI en
 
 ---
 
-## Advanced: PromptGuard Cloud
+## Advanced: PromptSentry Cloud
 
-For advanced features (cloud-based scanning, audit logs, team dashboard), provide your PromptGuard API key:
+For advanced features (cloud-based scanning, audit logs, team dashboard), provide your PromptSentry API key:
 
 ```yaml
-- name: Scan with PromptGuard Cloud
+- name: Scan with PromptSentry Cloud
   uses: ny-squared/guard-action@v1
   with:
     prompt: ${{ env.PROMPT }}
-    api_key: ${{ secrets.PROMPTGUARD_API_KEY }}
+    api_key: ${{ secrets.PROMPTSENTRY_API_KEY }}
 ```
 
 Get your API key at [app.trypromptguard.com](https://app.trypromptguard.com).
@@ -163,7 +163,7 @@ Get your API key at [app.trypromptguard.com](https://app.trypromptguard.com).
 ## Related
 
 - [`@ny-squared/guard`](https://www.npmjs.com/package/@ny-squared/guard) - The underlying SDK
-- [PromptGuard Dashboard](https://app.trypromptguard.com) - Web-based threat monitoring
+- [PromptSentry Dashboard](https://app.trypromptguard.com) - Web-based threat monitoring
 - [AI Security Benchmark](https://aibench.trypromptguard.com) - Test your LLM security
 
 ---
